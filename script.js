@@ -31,7 +31,7 @@ function calculaDolarNetflix(dolarOficialBNVendedor) {
     return resultadoDolarNetflix
 }
 
-function mostrarResultado(resultadoDolarSolidario, resultadoDolarNetflix) {
+function mostrarResultado(dolarOficialBNVendedor, resultadoDolarSolidario, resultadoDolarNetflix) {
     alert(" Los diferentes valores del dolar, con una cotización de dolar oficial a $" + dolarOficialBNVendedor + ", son:\n * $" + resultadoDolarSolidario + " Dolar Solidario \n * $" + resultadoDolarNetflix + " Dolar Netflix")
 }
 
