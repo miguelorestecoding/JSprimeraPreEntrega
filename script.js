@@ -21,6 +21,15 @@ function solicitaDolarOficialBNVendedor() {
   return parseFloat(dolarOficialBNVendedor);
 }
 
+function cotizadorDolares() {
+  let opcion = parseInt(
+    prompt(
+      "Selecciona que tipo de Dolar quieres calcular. Ingresa:\n 1 🥰 para Dolar Solidario.\n 2 💳 para Dolar Tarjeta (compras con tarjeta hasta los U$D300).\n 3 ✈ Dolar Quatar (compras con tarjeta superando los U$D300).\n 4 👋 para Salir de la Aplicación."
+    )
+  );
+  return opcion;
+}
+
 function calculaDolarSolidario(dolarOficialBNVendedor) {
   let resultadoDolarSolidario =
     dolarOficialBNVendedor +
@@ -73,13 +82,43 @@ function mostrarResultado(
   );
 }
 
-let dolarOficialBNVendedor = solicitaDolarOficialBNVendedor();
-let resultadoDolarSolidario = calculaDolarSolidario(dolarOficialBNVendedor);
-let resultadoDolarNetflix = calculaDolarNetflix(dolarOficialBNVendedor);
-let resultadoDolarQuatar = calculaDolarQuatar(dolarOficialBNVendedor);
-mostrarResultado(
-  dolarOficialBNVendedor,
-  resultadoDolarSolidario,
-  resultadoDolarNetflix,
-  resultadoDolarQuatar
-);
+let opcion = cotizadorDolares();
+
+while (opcion < 4 && opcion > 0) {
+  switch (opcion) {
+    case 1:
+      let resultadoDolarSolidario = calculaDolarSolidario(
+        dolarOficialBNVendedor
+      );
+      mostrarResultado(resultadoDolarSolidario);
+      break;
+    case 2:
+      let resultadoResta = resta(NUMERO_UNO, NUMERO_DOS);
+      mostrarResultado(resultadoResta);
+      break;
+    case 3:
+      let resultadoMultiplicacion = multiplicacion(NUMERO_UNO, NUMERO_DOS);
+      mostrarResultado(resultadoMultiplicacion);
+      break;
+    case 4:
+      let resultadoDivision = division(NUMERO_UNO, NUMERO_DOS);
+      mostrarResultado(resultadoDivision);
+      break;
+  }
+}
+
+if (opcion == NaN) {
+  alert("Es necesario que ingreses un número!");
+  cotizadorDolares();
+} else alert("Gracias por utilizar el cotizador de Dolares.");
+
+// let dolarOficialBNVendedor = solicitaDolarOficialBNVendedor();
+// let resultadoDolarSolidario = calculaDolarSolidario(dolarOficialBNVendedor);
+// let resultadoDolarNetflix = calculaDolarNetflix(dolarOficialBNVendedor);
+// let resultadoDolarQuatar = calculaDolarQuatar(dolarOficialBNVendedor);
+// mostrarResultado(
+//   dolarOficialBNVendedor,
+//   resultadoDolarSolidario,
+//   resultadoDolarNetflix,
+//   resultadoDolarQuatar
+// );
