@@ -8,23 +8,19 @@ function solicitaDolarOficialBNVendedor() {
 
   return dolarOficialBNVendedor;
 }
+
 function muestraPanelDeOpciones() {
-  opcion = prompt(
-    `*** DOLAR OFICIAL INGRESADO: $${parseFloat(dolarOficialBNVendedor)
-      .toFixed(2)
-      .replace(
-        ".",
-        ","
-      )}\n Selecciona qué tipo de Dólar quieres calcular:\n1 🥰 Dólar Solidario\n2 💳 Dólar Tarjeta (compras con tarjeta hasta U$D300)\n3 ✈ Dólar Qatar (compras con tarjeta superando U$D300)\n4 👋 Salir de la aplicación`
+  opcion = parseInt(
+    prompt(
+      `*** DOLAR OFICIAL INGRESADO: $${parseFloat(dolarOficialBNVendedor)
+        .toFixed(2)
+        .replace(
+          ".",
+          ","
+        )}\n Selecciona qué tipo de Dólar quieres calcular:\n1 🥰 Dólar Solidario\n2 💳 Dólar Tarjeta (compras con tarjeta hasta U$D300)\n3 ✈ Dólar Qatar (compras con tarjeta superando U$D300)\n4 👋 Salir de la aplicación`
+    )
   );
 
-  if (opcion === null) {
-    alert(
-      "⛔ Has presionado el botón cancelar, entiendo que han finalizado tus consultas.\n👋 Gracias por utilizar el calculador del Dólar! "
-    );
-    return;
-  }
-  opcion = parseInt(opcion);
   switch (opcion) {
     case 1:
       mostrarResultado(calculaDolarSolidario(), "Solidario 🥰");
@@ -38,10 +34,18 @@ function muestraPanelDeOpciones() {
     case 4:
       alert("👋 Gracias por utilizar el calculador del Dólar!");
       break;
+
     default:
-      alert("🥴 Opción inválida, por favor seleccione una opción válida.");
-      muestraPanelDeOpciones();
-      break;
+      if (opcion === null) {
+        alert(
+          "⛔ Has presionado el botón cancelar, entiendo que quieres irte.\n👋 Gracias por utilizar el calculador del Dólar! "
+        );
+        break;
+      } else {
+        alert("🥴 Opción inválida, por favor seleccione una opción válida.");
+        muestraPanelDeOpciones();
+        break;
+      }
   }
 }
 
@@ -71,7 +75,7 @@ function cotizadorDeDolares() {
 
     if (dolarOficialBNVendedor === null) {
       alert(
-        "⛔ Has presionado el botón cancelar, entiendo que no quieres realizar calculos ahora.\nCalcularemos el valor del dolar en otra ocasión 🤑!."
+        "⛔ Has presionado el botón cancelar, entiendo que no quieres realizar calculos ahora.\n🤑Calcularemos el valor del dolar en otra ocasión."
       );
       return;
     } else if (isNaN(parseFloat(dolarOficialBNVendedor))) {
