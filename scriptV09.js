@@ -28,12 +28,12 @@ function muestraPanelDeOpciones() {
       .replace(
         ".",
         ","
-      )}\n Selecciona qué tipo de Dólar quieres calcular:\n1 🥰 Dólar Solidario\n2 💳 Dólar Tarjeta (compras con tarjeta hasta U$D300)\n3 ✈ Dólar Qatar (compras con tarjeta superando U$D300)\n4 👋 Salir de la aplicación`
+      )}. ***\n\n Selecciona qué tipo de Dólar quieres calcular:\n1 🥰 Dólar Solidario\n2 💳 Dólar Tarjeta (compras con tarjeta hasta U$D300)\n3 ✈ Dólar Qatar (compras con tarjeta superando U$D300)\n4 👋 Salir de la aplicación`
   );
 
   if (opcion === null) {
     alert(
-      "⛔ Has presionado el botón cancelar, entiendo que han finalizado tus consultas.\n👋 Gracias por utilizar el calculador del Dólar! "
+      "⛔ Has presionado el botón cancelar, entiendo que han finalizado tus consultas.\n👋 Adios, vuelve cuando Quieras! "
     );
     return;
   }
@@ -84,16 +84,15 @@ function cotizadorDeDolares() {
 
   muestraPanelDeOpciones();
 
-  if (opcion === 1 || opcion === 2 || opcion === 3) {
+  while (opcion === 1 || opcion === 2 || opcion === 3) {
     let otraConsulta = confirm("🧐 Quieres realizar otra consulta?");
     if (otraConsulta) {
       cotizadorDeDolares();
       return;
-    } else {
+    } 
       alert("👋 Adios, espero haberte sido útil.");
       return;
-    }
-  }
+      }
 }
 
 cotizadorDeDolares();
