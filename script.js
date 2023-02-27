@@ -8,6 +8,19 @@ function solicitaDolarOficialBNVendedor() {
 
   return dolarOficialBNVendedor;
 }
+
+function calculaDolarSolidario() {
+  return parseFloat(dolarOficialBNVendedor) * 1.65;
+}
+
+function calculaDolarNetflix() {
+  return parseFloat(dolarOficialBNVendedor) * 1.75;
+}
+
+function calculaDolarQatar() {
+  return parseFloat(dolarOficialBNVendedor) * 2;
+}
+
 function muestraPanelDeOpciones() {
   opcion = prompt(
     `*** DOLAR OFICIAL INGRESADO: $${parseFloat(dolarOficialBNVendedor)
@@ -33,7 +46,7 @@ function muestraPanelDeOpciones() {
       mostrarResultado(calculaDolarNetflix(), "Tarjeta 💳");
       break;
     case 3:
-      mostrarResultado(calculaDolarQuatar(), "Qatar ✈");
+      mostrarResultado(calculaDolarQatar(), "Qatar ✈");
       break;
     case 4:
       alert("👋 Gracias por utilizar el calculador del Dólar!");
@@ -43,18 +56,6 @@ function muestraPanelDeOpciones() {
       muestraPanelDeOpciones();
       break;
   }
-}
-
-function calculaDolarSolidario() {
-  return parseFloat(dolarOficialBNVendedor) * 1.65;
-}
-
-function calculaDolarNetflix() {
-  return parseFloat(dolarOficialBNVendedor) * 1.75;
-}
-
-function calculaDolarQuatar() {
-  return parseFloat(dolarOficialBNVendedor) * 2;
 }
 
 function mostrarResultado(resultado, tipoDolar) {
